@@ -1,0 +1,8 @@
+# Compiled binary
+ticket-system
+
+# Environment variables (never commit real secrets)
+.env
+
+# OS/editor files
+.DS_Store
