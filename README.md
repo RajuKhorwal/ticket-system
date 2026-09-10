@@ -115,22 +115,19 @@ curl -X PATCH http://localhost:8080/tickets/t1/status \
   in the brief, added as a basic sanity check.
 - Server listens on 8080 by default, but reads PORT from the environment
   if set (some hosting platforms assign their own port).
+- Render's environment variables explicitly set PORT=8080, matching the
+  port specified in the Implementation Contract. The app also has its
+  own fallback to 8080 if PORT is unset, so this works consistently
+  across local runs, Docker, and the Render deployment.
 
 ## Deployment
 
 Deployed on Render (free tier), built directly from the Dockerfile in this
 repo.
 
-- Deployed URL: <ADD_YOUR_URL_HERE>
-- Health check: <ADD_YOUR_URL_HERE>/health
+- Deployed URL: https://ticket-system-5j4a.onrender.com
+- Health check: https://ticket-system-5j4a.onrender.com/health
 
 Render's free tier sleeps after inactivity and takes a few seconds to wake
 on the next request - expected behavior, not a bug.
 
-## Submission Checklist
-
-- [ ] GitHub repository link
-- [ ] Deployed application URL
-- [ ] Public /health URL
-- [ ] README (local run, Docker run, deployment URL, assumptions)
-- [ ] .env.example
